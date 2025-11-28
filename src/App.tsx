@@ -410,6 +410,34 @@ const BaliTrip = () => {
         </div>
       </section>
 
+      {/* 新增的吉伊卡哇 Section */}
+      <section className="py-16 bg-white text-center overflow-hidden">
+        <h3 className="text-2xl font-bold text-stone-800 mb-6">帶著滿滿的療癒回家吧！</h3>
+        <div className="relative w-64 h-64 mx-auto animate-bounce" style={{ animationDuration: '3s' }}>
+           {/* SVG Code for Chikawa-like character */}
+           <svg viewBox="0 0 200 200" className="w-full h-full drop-shadow-xl">
+             {/* Ears */}
+             <circle cx="50" cy="50" r="25" fill="#FFFFFF" stroke="#57534e" strokeWidth="4"/>
+             <circle cx="150" cy="50" r="25" fill="#FFFFFF" stroke="#57534e" strokeWidth="4"/>
+             {/* Body/Face */}
+             <rect x="30" y="40" width="140" height="130" rx="60" fill="#FFFFFF" stroke="#57534e" strokeWidth="4"/>
+             {/* Face Features */}
+             {/* Eyes */}
+             <circle cx="70" cy="90" r="6" fill="#292524"/>
+             <circle cx="130" cy="90" r="6" fill="#292524"/>
+             {/* Cheeks */}
+             <ellipse cx="55" cy="105" rx="12" ry="8" fill="#fda4af" opacity="0.6"/>
+             <ellipse cx="145" cy="105" rx="12" ry="8" fill="#fda4af" opacity="0.6"/>
+             {/* Mouth (W shape) */}
+             <path d="M85 110 Q92 120 100 115 Q108 120 115 110" fill="none" stroke="#292524" strokeWidth="3" strokeLinecap="round"/>
+             {/* Hands */}
+             <ellipse cx="20" cy="120" rx="15" ry="12" fill="#FFFFFF" stroke="#57534e" strokeWidth="4" transform="rotate(-20 20 120)"/>
+             <ellipse cx="180" cy="120" rx="15" ry="12" fill="#FFFFFF" stroke="#57534e" strokeWidth="4" transform="rotate(20 180 120)"/>
+           </svg>
+        </div>
+        <p className="text-stone-500 mt-4 font-medium">哇！是吉伊卡哇！</p>
+      </section>
+
       {/* Footer */}
       <footer className="bg-stone-900 text-stone-400 py-12 px-6 text-center">
         <div className="max-w-4xl mx-auto">
