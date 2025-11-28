@@ -447,7 +447,7 @@ const BaliTrip = () => {
           <h2 className="text-2xl font-bold text-white mb-4">Mission Complete!</h2>
           <p className="mb-8">Seminyak 日落時光 • Ubud 秘境瀑布 • Nusa Dua 藍色潟湖</p>
           <div className="text-sm border-t border-stone-800 pt-8">
-            © 2025 貓貓吉伊卡哇療癒探險隊
+            © 2025 林北三人成團
           </div>
         </div>
       </footer>
