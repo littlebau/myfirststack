@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Plane, Map, Sun, Coffee, Camera, Palmtree, Waves, Mountain, Utensils, Hotel, Calendar, DollarSign, Heart, ChevronUp } from 'lucide-react';
 
+// 將 CarIcon 移到上方定義，避免 TypeScript 檢查問題
+const CarIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+);
+
 const BaliTrip = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -22,7 +27,7 @@ const BaliTrip = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -241,7 +246,7 @@ const BaliTrip = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {characters.map((char, index) => (
+            {characters.map((char: any, index: number) => (
               <div key={index} className="group relative bg-stone-50 rounded-3xl p-8 text-center hover:shadow-xl transition-all duration-300 border border-stone-100 transform hover:-translate-y-2">
                 <div className={`w-24 h-24 mx-auto rounded-full ${char.color} flex items-center justify-center text-5xl mb-6 shadow-inner`}>
                   {char.icon}
@@ -259,7 +264,7 @@ const BaliTrip = () => {
       <div id="itinerary" className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 overflow-x-auto">
           <div className="flex justify-center min-w-max">
-            {chapters.map((chapter) => (
+            {chapters.map((chapter: any) => (
               <button
                 key={chapter.id}
                 onClick={() => {
@@ -281,7 +286,7 @@ const BaliTrip = () => {
 
       {/* Itinerary Sections */}
       <div className="bg-stone-50">
-        {chapters.map((chapter) => (
+        {chapters.map((chapter: any) => (
           <section key={chapter.id} id={chapter.id} className="py-20 px-6 border-b border-stone-200 last:border-0">
             <div className="max-w-5xl mx-auto">
               {/* Chapter Header */}
@@ -305,7 +310,7 @@ const BaliTrip = () => {
 
               {/* Days Grid */}
               <div className="grid md:grid-cols-3 gap-6">
-                {chapter.details.map((day, idx) => (
+                {chapter.details.map((day: any, idx: number) => (
                   <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-stone-100">
                     <div className={`h-2 w-full ${
                        chapter.theme === 'warm' ? 'bg-orange-400' : 
@@ -325,7 +330,7 @@ const BaliTrip = () => {
                       <h4 className="text-lg font-bold text-stone-800 mb-6 h-14">{day.title}</h4>
                       
                       <div className="space-y-4">
-                        {day.activities.map((act, actIdx) => (
+                        {day.activities.map((act: any, actIdx: number) => (
                           <div key={actIdx} className="flex gap-3 text-sm">
                             <div className="mt-0.5 text-stone-400 flex-shrink-0">
                               {act.icon}
@@ -386,7 +391,7 @@ const BaliTrip = () => {
               </div>
               
               <div className="space-y-3 mb-6">
-                {costs.map((cost, idx) => (
+                {costs.map((cost: any, idx: number) => (
                   <div key={idx} className="flex justify-between items-center py-2 border-b border-stone-200 last:border-0">
                     <span className="text-stone-600">{cost.item}</span>
                     <span className="font-medium text-stone-800">TWD {cost.price}</span>
@@ -429,10 +434,5 @@ const BaliTrip = () => {
     </div>
   );
 };
-
-// Simple Car Icon as it was missing from imports
-const CarIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
-)
 
 export default BaliTrip;
